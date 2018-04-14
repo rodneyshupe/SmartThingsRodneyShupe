@@ -1,4 +1,4 @@
-# SmartThingsMjoen Public Github Repo
+# SmartThingsRodneyShupe Public Github Repo
 
 An official list of @rodneyshupe SmartApps and Device Types for SmartThings.  If you find this code useful or you need assistance using this code, I ask you to please donate to my preferred local charity as a thank you:
 
@@ -9,7 +9,10 @@ Device Types:
 * Sony Android TV - (Development) Control Your TV.
 
 Smart Apps:
+* *none yet*
+<!--
 * NHL Goal Light - (Development) Allows you to select your favorite NHL team and turn on/off switch, flash switch, and/or play your teams goal siren/song.
+-->
 
 # FAQs
 
