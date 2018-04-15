@@ -47,9 +47,9 @@ metadata {
         capability "Switch Level"
         capability "TV"
 
-        command "sendremotecommand"
-        command "digital"
-        command "picoff"
+        command "sendRemoteCommand"
+        command "cmdDigital"
+        command "cmdPicOff"
         command "tv_source"
         command "hdmi1"
         command "hdmi2"
@@ -61,97 +61,97 @@ metadata {
         command "ipaddress"
         command "iphex"
         command "macaddress"
-        command "home"
-        command "gguide"
-        command "epg"
-        command "favorites"
-        command "display"
-        command "actionMenu"
-        command "retu"
-        command "up"
-        command "down"
-        command "right"
-        command "left"
-        command "confirm"
-        command "red"
-        command "green"
-        command "yellow"
-        command "blue"
-        command "num1"
-        command "num2"
-        command "num3"
-        command "num4"
-        command "num5"
-        command "num6"
-        command "num7"
-        command "num8"
-        command "num9"
-        command "num0"
-        command "num11"
-        command "num12"
-        command "volumeup"
-        command "volumedown"
-        command "ChannelUp"
-        command "ChannelDown"
-        command "SubTitle"
-        command "ClosedCaption"
-        command "Enter"
-        command "DOT"
-        command "Analog"
-        command "Teletext"
-        command "Exit"
-        command "Analog2"
-        command "AD"
-        command "Analogg"
-        command "BS"
-        command "CS"
-        command "BSCS"
-        command "Ddata"
-        command "PicOff"
-        command "Tv_Radio"
-        command "Theater"
-        command "SEN"
-        command "InternetWidgets"
-        command "InternetVideo"
-        command "SceneSelect"
-        command "Mode3D"
-        command "iManual"
-        command "Audio"
-        command "Wide"
-        command "Jump"
-        command "PAP"
-        command "MyEPG"
-        command "ProgramDescription"
-        command "WriteChapter"
-        command "TrackID"
-        command "TenKey"
-        command "AppliCast"
-        command "acTVila"
-        command "DeleteVideo"
-        command "PhotoFrame"
-        command "TvPause"
-        command "KeyPad"
-        command "Media"
-        command "Forward"
-        command "Play"
-        command "Rewind"
-        command "Prev"
-        command "Stop"
-        command "Next"
-        command "Rec"
-        command "Pause"
-        command "Eject"
-        command "FlashPlus"
-        command "FlashMinus"
-        command "TopMenu"
-        command "RakurakuStart"
-        command "OneTouchTimeRec"
-        command "OneTouchView"
-        command "OneTouchRec"
+        command "cmdHome"
+        command "cmdGGuide"
+        command "cmdEPG"
+        command "cmdFavorites"
+        command "cmdDisplay"
+        command "cmdActionMenu"
+        command "cmdReturn"
+        command "cmdUp"
+        command "cmdDown"
+        command "cmdRight"
+        command "cmdLeft"
+        command "cmdConfirm"
+        command "cmdRed"
+        command "cmdGreen"
+        command "cmdYellow"
+        command "cmdBlue"
+        command "cmdNum1"
+        command "cmdNum2"
+        command "cmdNum3"
+        command "cmdNum4"
+        command "cmdNum5"
+        command "cmdNum6"
+        command "cmdNum7"
+        command "cmdNum8"
+        command "cmdNum9"
+        command "cmdNum0"
+        command "cmdNum11"
+        command "cmdNum12"
+        command "cmdVolumeUp"
+        command "cmdVolumeDown"
+        command "cmdChannelUp"
+        command "cmdChannelDown"
+        command "cmdSubTitle"
+        command "cmdClosedCaption"
+        command "cmdEnter"
+        command "cmdDOT"
+        command "cmdAnalog"
+        command "cmdTeletext"
+        command "cmdExit"
+        command "cmdAnalog2"
+        command "cmdAD"
+        command "cmdAnalogg"
+        command "cmdBS"
+        command "cmdCS"
+        command "cmdBSCS"
+        command "cmdDdata"
+        command "cmdTvRadio"
+        command "cmdTheater"
+        command "cmdSEN"
+        command "cmdInternetWidgets"
+        command "cmdInternetVideo"
+        command "cmdSceneSelect"
+        command "cmdMode3D"
+        command "cmdIManual"
+        command "cmdAudio"
+        command "cmdWide"
+        command "cmdJump"
+        command "cmdPAP"
+        command "cmdMyEPG"
+        command "cmdProgramDescription"
+        command "cmdWriteChapter"
+        command "cmdTrackID"
+        command "cmdTenKey"
+        command "cmdAppliCast"
+        command "cmdAcTVila"
+        command "cmdDeleteVideo"
+        command "cmdPhotoFrame"
+        command "cmdTvPause"
+        command "cmdKeyPad"
+        command "cmdMedia"
+        command "cmdForward"
+        command "cmdPlay"
+        command "cmdRewind"
+        command "cmdPrev"
+        command "cmdStop"
+        command "cmdNext"
+        command "cmdRec"
+        command "cmdPause"
+        command "cmdEject"
+        command "cmdFlashPlus"
+        command "cmdFlashMinus"
+        command "cmdTopMenu"
+        command "cmdRakurakuStart"
+        command "cmdOneTouchTimeRec"
+        command "cmdOneTouchView"
+        command "cmdOneTouchRec"
         command "OneTouchStop"
-        command "DUX"
-        command "FootballMode"
-        command "SyncMenu"
+        command "cmdDUX"
+        command "cmdFootballMode"
+        command "ScmdyncMenu"
+        command "cmdWirelessSubwoofer"
     }
 
     simulator {
@@ -159,7 +159,7 @@ metadata {
         status "off": "on/off: 0"
     }
 
-  tiles(scale: 2) {
+    tiles(scale: 2) {
         multiAttributeTile(name: "TVMulti", type:"generic", width:6, height:2) {
             tileAttribute("device.switch", key: "PRIMARY_CONTROL") {
                 attributeState "on", label:'ON', backgroundColor:"#00A0DC", nextState:"turningOff"
@@ -174,8 +174,8 @@ metadata {
                 attributeState "turningOff", label:'…', action:"switch.on", backgroundColor:"#ffffff", nextState:"turningOn"
             }
             tileAttribute("device.level", key: "VALUE_CONTROL") {
-                attributeState "VALUE_UP", action: "volumeup"
-                attributeState "VALUE_DOWN", action: "volumedown"
+                attributeState "VALUE_UP", action: "cmdVolumeUp"
+                attributeState "VALUE_DOWN", action: "cmdVolumeDown"
             }
         }
 
@@ -189,317 +189,339 @@ metadata {
             state "on", label: '', action: "off", icon:"st.thermostat.heating-cooling-off", backgroundColor: "#79b821"//, nextState: "off"
         }
 
-        standardTile("on", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"On", action:"on", icon:""
+        standardTile("tileOn", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"On", action:"cmdOn", icon:""
         }
 
-        standardTile("off", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"off", action:"off", icon:""
+        standardTile("tileOff", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Off", action:"cmdOff", icon:""
         }
 
-        standardTile("digital", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Digital", action:"digital", icon:""
+        standardTile("tileDigital", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Digital", action:"cmdDigital", icon:""
         }
 
-        standardTile("picoff", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Pic Off", action:"picoff", icon:""
+        standardTile("tilePicOff", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Pic Off", action:"cmdPicOff", icon:""
         }
 
-        standardTile("refresh", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+        standardTile("tileRefresh", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
             state "default", label:"", action:"refresh.refresh", icon:"st.secondary.refresh"
         }
 
-        standardTile("tv_source", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Source", action:"tv_source", icon:""
+        standardTile("tileTvSource", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Source", action:"cmdTvSource", icon:""
         }
 
-        standardTile("WOLC", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Wake on Lan", action:"WOLC", icon:""
+        standardTile("tileWOLC", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Wake on Lan", action:"cmdWOLC", icon:""
         }
 
-        standardTile("hdmi1", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"HDMI 1", action:"hdmi1", icon:""
+        standardTile("tileHdmi1", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"HDMI 1", action:"cmdHdmi1", icon:""
         }
 
-        standardTile("hdmi2", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"HDMI 2", action:"hdmi2", icon:""
+        standardTile("tileHdmi2", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"HDMI 2", action:"cmdHdmi2", icon:""
         }
 
-        standardTile("hdmi3", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"HDMI 3", action:"hdmi3", icon:""
+        standardTile("tileHdmi3", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"HDMI 3", action:"cmdHdmi3", icon:""
         }
 
-        standardTile("hdmi4", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Yamaha", action:"hdmi4", icon:""
+        standardTile("tileHdmi4", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"HDMI 4", action:"cmdHdmi4", icon:""
         }
 
-        standardTile("netflix", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Apps", action:"netflix", icon:""
+        standardTile("tileNetflix", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Netflix", action:"cmdNetflix", icon:""
         }
 
-        standardTile("home", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"", action:"home", icon:"${getUserTheme('default','iconHome')}"
+        standardTile("tileHome", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Home", action:"cmdHome", icon:"${getUserTheme('default','iconHome')}"
         }
 
-        standardTile("mute", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Mute", action:"mute", icon:""
+        standardTile("tileMute", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Mute", action:"cmdMute", icon:""
         }
 
-        standardTile("gguide", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"gguide", action:"gguide", icon:""
+        standardTile("tileGGuide", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"GGuide", action:"cmdGGuide", icon:""
         }
 
-        standardTile("epg", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Guide", action:"epg", icon:""
+        standardTile("tileEPG", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Guide", action:"cmdEPG", icon:""
         }
 
-        standardTile("favorites", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"favorites", action:"favorites", icon:""
+        standardTile("tileFavorites", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Favorites", action:"cmdFavorites", icon:""
         }
 
-        standardTile("display", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"", action:"display", icon:"${getUserTheme('default', 'iconInfo')}"
+        standardTile("tileDisplay", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"", action:"cmdDisplay", icon:"${getUserTheme('default', 'iconInfo')}"
         }
 
-        standardTile("actionMenu", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"", action:"actionMenu", icon:"${getUserTheme('default', 'iconMenu')}"
+        standardTile("tileActionMenu", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"", action:"cmdActionMenu", icon:"${getUserTheme('default', 'iconMenu')}"
         }
 
-        standardTile("confirm", "device.switch", inactiveLabel: false, height: 2, width: 2, decoration: "${getUserPref('decPush')}") {
-            state "default", label:"Select", action:"confirm", backgroundColor:"${getUserPref('colSelectActive')}"
+        standardTile("tileConfirm", "device.switch", inactiveLabel: false, height: 2, width: 2, decoration: "${getUserPref('decPush')}") {
+            state "default", label:"Select", action:"cmdConfirm", backgroundColor:"${getUserPref('colSelectActive')}"
         }
 
-        standardTile("up", "device.switch", inactiveLabel: false, height: 1, width: 2, decoration: "flat") {
-            state "default", label:"", action:"up", icon:"${getUserTheme('default','iconUp')}"
+        standardTile("tileUp", "device.switch", inactiveLabel: false, height: 1, width: 2, decoration: "flat") {
+            state "default", label:"", action:"cmdUp", icon:"${getUserTheme('default','iconUp')}"
         }
 
-        standardTile("retu", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"return", action:"retu", icon:""
+        standardTile("tileReturn", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Return", action:"cmdReturn", icon:""
         }
 
-        standardTile("red", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"red", action:"red", icon:"", backgroundColor: "#ff0000"
+        standardTile("tileRed", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Red", action:"cmdRed", icon:"", backgroundColor: "#ff0000"
         }
 
-        standardTile("green", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Freeview", action:"green", icon:"", backgroundColor: "#008000"
+        standardTile("tileGreen", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Green", action:"cmdGreen", icon:"", backgroundColor: "#008000"
         }
 
-        standardTile("yellow", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"yellow", action:"yellow", icon:"", backgroundColor: "#ffff00"
+        standardTile("tileYellow", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Yellow", action:"cmdYellow", icon:"", backgroundColor: "#ffff00"
         }
 
-        standardTile("down", "device.switch", inactiveLabel: false, height: 1, width: 2, decoration: "flat") {
-            state "default", label:"", action:"down", icon:"${getUserTheme('default','iconDown')}"
+        standardTile("tileDown", "device.switch", inactiveLabel: false, height: 1, width: 2, decoration: "flat") {
+            state "default", label:"", action:"cmdDown", icon:"${getUserTheme('default','iconDown')}"
         }
 
-        standardTile("right", "device.switch", inactiveLabel: false, height: 2, width: 1, decoration: "flat") {
-            state "default", label:"", action:"right", icon:"${getUserTheme('default','iconRight')}"
+        standardTile("tileRight", "device.switch", inactiveLabel: false, height: 2, width: 1, decoration: "flat") {
+            state "default", label:"", action:"cmdRight", icon:"${getUserTheme('default','iconRight')}"
         }
 
-        standardTile("left", "device.switch", inactiveLabel: false, height: 2, width: 1, decoration: "flat") {
-            state "default", label:"", action:"left", icon:"${getUserTheme('default','iconLeft')}"
+        standardTile("tileLeft", "device.switch", inactiveLabel: false, height: 2, width: 1, decoration: "flat") {
+            state "default", label:"", action:"cmdLeft", icon:"${getUserTheme('default','iconLeft')}"
         }
 
-        standardTile("blue", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"blue", action:"blue", icon:"", backgroundColor: "#0000ff"
+        standardTile("tileBlue", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Blue", action:"cmdBlue", icon:"", backgroundColor: "#0000ff"
         }
 
-        standardTile("num1", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num1", action:"num1", icon:""
+        standardTile("tileNum1", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num1", action:"cmdNum1", icon:""
         }
 
-        standardTile("num2", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num2", action:"num2", icon:""
+        standardTile("tileNum2", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num2", action:"cmdNum2", icon:""
         }
 
-        standardTile("num3", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num3", action:"num3", icon:""
+        standardTile("tileNum3", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num3", action:"cmdNum3", icon:""
         }
 
-        standardTile("num4", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num4", action:"num4", icon:""
+        standardTile("tileNum4", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num4", action:"cmdNum4", icon:""
         }
 
-        standardTile("num5", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num5", action:"num5", icon:""
+        standardTile("tileNum5", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num5", action:"cmdNum5", icon:""
         }
 
-        standardTile("num6", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num6", action:"num6", icon:""
+        standardTile("tileNum6", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num6", action:"cmdNum6", icon:""
         }
 
-        standardTile("num7", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num7", action:"num7", icon:""
+        standardTile("tileNum7", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num7", action:"cmdNum7", icon:""
         }
 
-        standardTile("num8", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+        standardTile("tileNum8", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
             state "default", label:"num8", action:"num8", icon:""
         }
 
-        standardTile("num9", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num9", action:"num9", icon:""
+        standardTile("tileNum9", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num9", action:"cmdNum9", icon:""
         }
 
-        standardTile("num0", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num0", action:"num0", icon:""
+        standardTile("tileNum0", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num0", action:"cmdNum0", icon:""
         }
 
-        standardTile("num11", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num11", action:"num11", icon:""
+        standardTile("tileNum11", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num11", action:"cmdNum11", icon:""
         }
 
-        standardTile("num12", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"num12", action:"num12", icon:""
+        standardTile("tileNum12", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"num12", action:"cmdNum12", icon:""
         }
 
-        standardTile("volumeup", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Vol", action:"volumeup", icon:"${getUserTheme('default','iconUp')}"
+        standardTile("tileVolumeUp", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Vol", action:"cmdVolumeUp", icon:"${getUserTheme('default','iconUp')}"
         }
 
-        standardTile("volumedown", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Vol", action:"volumedown", icon:"${getUserTheme('default','iconDown')}"
+        standardTile("tileVolumeDown", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Vol", action:"cmdVolumeDown", icon:"${getUserTheme('default','iconDown')}"
         }
 
-        standardTile("ChannelUp", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Channel", action:"ChannelUp", icon:"${getUserTheme('default','iconUp')}"
+        standardTile("tileChannelUp", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Channel", action:"cmdChannelUp", icon:"${getUserTheme('default','iconUp')}"
         }
 
-        standardTile("ChannelDown", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Channel", action:"ChannelDown", icon:"${getUserTheme('default','iconDown')}"
+        standardTile("tileChannelDown", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Channel", action:"cmdChannelDown", icon:"${getUserTheme('default','iconDown')}"
         }
 
-        standardTile("SubTitle", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"SubTitle", action:"SubTitle", icon:""
+        standardTile("tileSubTitle", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"SubTitle", action:"cmdSubTitle", icon:""
         }
 
-        standardTile("ClosedCaption", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"ClosedCaption", action:"ClosedCaption", icon:""
+        standardTile("tileClosedCaption", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"CC", action:"cmdClosedCaption", icon:""
         }
 
-        standardTile("Enter", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Enter", action:"Enter", icon:""
+        standardTile("tileEnter", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Enter", action:"cmdEnter", icon:""
         }
 
-        standardTile("DOT", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"DOT", action:"DOT", icon:""
+        standardTile("tileDOT", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"DOT", action:"cmdDOT", icon:""
         }
 
-        standardTile("Analog", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Analog", action:"Analog", icon:""
+        standardTile("tileAnalog", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Analog", action:"cmdAnalog", icon:""
         }
 
-        standardTile("Teletext", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Teletext", action:"Teletext", icon:""
+        standardTile("tileTeletext", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Teletext", action:"cmdTeletext", icon:""
         }
 
-        standardTile("Exit", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Exit", action:"Exit", icon:""
+        standardTile("tileExit", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Exit", action:"cmdExit", icon:""
         }
 
-        standardTile("Mode3D", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"3D", action:"Mode3D", icon:""
+        standardTile("tileMode3D", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"3D", action:"cmdMode3D", icon:""
         }
 
-        standardTile("iManual", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Help", action:"iManual", icon:""
+        standardTile("tileIManual", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Help", action:"cmdIManual", icon:""
         }
 
-        standardTile("Audio", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Audio", action:"Audio", icon:""
+        standardTile("tileAudio", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Audio", action:"cmdAudio", icon:""
         }
 
-        standardTile("Wide", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Aspect Ratio", action:"Wide", icon:""
+        standardTile("tileWide", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Aspect Ratio", action:"cmdWide", icon:""
         }
 
-        standardTile("Jump", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Jump", action:"Jump", icon:""
+        standardTile("tileJump", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Jump", action:"cmdJump", icon:""
         }
 
-        standardTile("PAP", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"PIP", action:"PAP", icon:""
+        standardTile("tilePAP", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"PIP", action:"cmdPAP", icon:""
         }
 
-        standardTile("PhotoFrame", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Recorded", action:"PhotoFrame", icon:""
+        standardTile("tilePhotoFrame", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Recorded", action:"cmdPhotoFrame", icon:""
         }
 
-        standardTile("Media", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Streaming", action:"Media", icon:""
+        standardTile("tileMedia", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Streaming", action:"cmdMedia", icon:""
         }
 
-        standardTile("SyncMenu", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Sync Menu", action:"SyncMenu", icon:""
+        standardTile("tileSyncMenu", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Sync Menu", action:"cmdSyncMenu", icon:""
         }
 
-        standardTile("Forward", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Forward", action:"Forward", icon:""
+        standardTile("tileForward", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Forward", action:"cmdForward", icon:""
         }
 
-        standardTile("Play", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Play", action:"Play", icon:""
+        standardTile("tilePlay", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Play", action:"cmdPlay", icon:""
         }
 
-        standardTile("Rewind", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Rewind", action:"Rewind", icon:""
+        standardTile("tileRewind", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Rewind", action:"cmdRewind", icon:""
         }
 
-        standardTile("Prev", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Prev", action:"Prev", icon:""
+        standardTile("tilePrev", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Prev", action:"cmdPrev", icon:""
         }
 
-        standardTile("Stop", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Stop", action:"Stop", icon:""
+        standardTile("tileStop", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Stop", action:"cmdStop", icon:""
         }
 
-        standardTile("Next", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Next", action:"Next", icon:""
+        standardTile("tileNext", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Next", action:"cmdNext", icon:""
         }
 
-        standardTile("Rec", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Rec", action:"Rec", icon:""
+        standardTile("tileRec", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Rec", action:"cmdRec", icon:""
         }
 
-        standardTile("Pause", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Pause", action:"Pause", icon:""
+        standardTile("tilePause", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Pause", action:"cmdPause", icon:""
         }
 
-        standardTile("Eject", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Eject", action:"Eject", icon:""
+        standardTile("tileEject", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"Eject", action:"cmdEject", icon:""
         }
 
-        standardTile("OneTouchView", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"OneTouchView", action:"OneTouchView", icon:""
+        standardTile("tileOneTouchView", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"OneTouchView", action:"cmdOneTouchView", icon:""
         }
 
-        standardTile("OneTouchTimeRec", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"OneTouchTimeRec", action:"OneTouchTimeRec", icon:""
+        standardTile("tileOneTouchTimeRec", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"OneTouchTimeRec", action:"cmdOneTouchTimeRec", icon:""
         }
 
-        standardTile("OneTouchRec", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"OneTouchRec", action:"OneTouchRec", icon:""
+        standardTile("tileOneTouchRec", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"OneTouchRec", action:"cmdOneTouchRec", icon:""
         }
 
-        standardTile("OneTouchStop", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"OneTouchStop", action:"OneTouchStop", icon:""
+        standardTile("tileOneTouchStop", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+            state "default", label:"OneTouchStop", action:"cmdOneTouchStop", icon:""
         }
 
-        standardTile("DUX", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+        standardTile("tileDUX", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
             state "default", label:"Discovery", action:"DUX", icon:""
         }
 
         standardTile("FootballMode", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
-            state "default", label:"Football Mode", action:"FootballMode", icon:""
+            state "default", label:"Football Mode", action:"cmdFootballMode", icon:""
         }
 
-        controlTile("volume", "device.level", "slider", height: 1,width: 2) {
+        controlTile("tileVolume", "device.level", "slider", height: 1,width: 2) {
         	state "level", action:"switch level.setLevel"
         }
 
-    /**uncomment any extra buttons you need from the lines below*/
-        main "switch"
-        details(["hdmi1", "hdmi2", "hdmi3", "hdmi4", "switch", "tv_source", "netflix", "Media", "digital", "picoff", "display", "up", "epg", "DUX", "ChannelUp", "left", "confirm", "right", "volumeup", "ChannelDown", "volumedown", "refresh", "actionMenu", "down", "home", "mute", "red", "green", "yellow", "blue", "SyncMenu", "Forward", "Play", "Rewind", "Prev", "Stop", "Next", "Rec", "Pause", "Eject", "retu", "power", "on", "off", "num1", "num2", "num3", "num4", "num5", "num6", "num7", "num8", "num9", "num0", "num11", "num12", "SubTitle", "ClosedCaption", "Enter", "DOT", "Analog", "Teletext", "Exit", "Mode3D", "iManual", "Audio", "Wide", "Jump", "PAP", "MyEPG", "ProgramDescription", "WriteChapter", "TrackID", "TenKey", "AppliCast", "acTVila", "DeleteVideo", "PhotoFrame", "TvPause", "KeyPad", "Media", "FlashPlus", "FlashMinus", "TopMenu", "RakurakuStart", "OneTouchTimeRec", "OneTouchView", "OneTouchRec", "OneTouchStop", "DUX", "gguide", "FootballMode", "Social", "WOLC"])
+        main("switch")
+
+        /**uncomment any extra tiles you need from the lines below*/
+        details(["tileHdmi1", "tileHdmi2", "tileHdmi3", "tileHdmi4",
+            "tileSwitch", "tileTvSource", "tileNetflix", "tileMedia",
+            "tileDigital", "tilePicOff", "tileDisplay", "tileUp", "tileEPG",
+            "tileDUX", "tileChannelUp", "tileLeft", "tileConfirm", "tileRight",
+            "tileVolumeUp", "tileChannelDown", "tileVolumeDown",
+            "tileRefresh", "tileActionMenu", "tileDown", "tileHome", "tileMute",
+            "tileYellow", "tileBlue", "tileRed", "tileGreen",
+            "tileSyncMenu", "tileForward", "tilePlay", "tileRewind", "tilePrev",
+            "tileStop", "tileNext", "tileRec", "tilePause", "tileEject",
+            "tileReturn", "tilePower", "tileOn", "tileOff",
+            "tileNum1", "tileNum2", "tileNum3", "tileNum4", "tileNum5",
+            "tileNum6", "tileNum7", "tileNum8", "tileNum9", "tileNum0",
+            "tileNum11", "tileNum12", "tileSubTitle", "tileClosedCaption",
+            "tileEnter", "tileDOT", "tileAnalog", "tileTeletext", "tileExit",
+            "tileMode3D", "tileIManual", "tileAudio", "tileWide", "tileJump",
+            "tilePAP", "tileMyEPG", "tileProgramDescription", "tileWriteChapter",
+            "tileTrackID", "tileTenKey", "tileAppliCast", "tileAcTVila",
+            "tileDeleteVideo", "tilePhotoFrame", "tileTvPause", "tileKeyPad",
+            "tileMedia", "tileFlashPlus", "tileFlashMinus", "tileTopMenu",
+            "tileRakurakuStart", "tileOneTouchTimeRec", "tileOneTouchView",
+            "tileOneTouchRec", "tileOneTouchStop", "tileDUX", "tileGGuide",
+            "tileFootballMode", "tileSocial", "tileWOLC"])
     }
 
     preferences {
@@ -581,7 +603,7 @@ def getUserPref(pref){
 
 def updated(){
 	log.debug( "Preferences Updated rebuilding IP Address, MAC address and Hex Network ID")
-	state.tv_poll_count = 0
+	state.tvPollCount = 0
 	ipaddress()
 	iphex()
 	refresh()
@@ -641,7 +663,7 @@ def parse(description) {
         state.tv = (msg.json.result[0]?.status == "active") ? "on" : "off"
         sendEvent(name: "switch", value: state.tv)
         log.debug "TV is '${state.tv}'"
-        state.tv_poll_count = 0
+        state.tvPollCount = 0
     }
 }
 
@@ -673,10 +695,10 @@ def refresh() {
 
 def poll() {
     //set state.tv to 0ff
-    log.debug "poll count ${state.tv_poll_count}"
+    log.debug "poll count ${state.tvPollCount}"
     state.tv = "polling"
-    state.tv_poll_count = (state.tv_poll_count + 1)
-    if (state.tv_poll_count > 1 ) {
+    state.tvPollCount = (state.tvPollCount + 1)
+    if (state.tvPollCount > 1 ) {
         sendEvent(name: "switch", value: "off")
     }
     log.debug "Executing 'poll'"
@@ -688,7 +710,7 @@ def poll() {
 /**-------------------------------------------------------
 All remote Functions Assigned below
 --------------------------------------------------------*/
-def setLevel(vol) { state.remotecommand = "*SCVOLU0000000000000" + String.format('%03d',vol) }
+def setLevel(vol) { state.remoteCommand = "*SCVOLU0000000000000" + String.format('%03d',vol) }
 
 def on() {
     log.debug "Executing 'on'"
@@ -706,116 +728,141 @@ def off() {
     def result = sendJsonRpcCommand(json)
 }
 
-def digital() {         sendremotecommand("AAAAAgAAAJcAAAAyAw==", "digital") }
-def picoff() {          sendremotecommand("AAAAAQAAAAEAAAA+Aw==", "Pic Off") }
-def gguide() {          sendremotecommand("AAAAAQAAAAEAAAAOAw==", "gguide") }
-def epg() {             sendremotecommand("AAAAAgAAAKQAAABbAw==", "epg") }
-def favorites() {       sendremotecommand("AAAAAgAAAHcAAAB2Aw==", "favorites") }
-def display() {         sendremotecommand("AAAAAQAAAAEAAAA6Aw==", "display") }
-def home() {            sendremotecommand("AAAAAQAAAAEAAABgAw==", "home") }
-def actionMenu() {      sendremotecommand("AAAAAgAAAJcAAAA2Aw==", "actionMenu") }
-def retu() {            sendremotecommand("AAAAAgAAAJcAAAAjAw==",  "retu") }
-def up() {              sendremotecommand("AAAAAQAAAAEAAAB0Aw==", "up") }
-def down() {            sendremotecommand("AAAAAQAAAAEAAAB1Aw==", "down") }
-def right() {           sendremotecommand("AAAAAQAAAAEAAAAzAw==", "right") }
-def left() {            sendremotecommand("AAAAAQAAAAEAAAA0Aw==", "left") }
-def confirm() {         sendremotecommand("AAAAAQAAAAEAAABlAw==", "confirm") }
-def red() {             sendremotecommand("AAAAAgAAAJcAAAAlAw==", "red") }
-def green() {           sendremotecommand("AAAAAgAAAJcAAAAmAw==", "green") }
-def yellow() {          sendremotecommand("AAAAAgAAAJcAAAAnAw==", "yellow") }
-def blue() {            sendremotecommand("AAAAAgAAAJcAAAAkAw==", "blue") }
-def num1() {            sendremotecommand("AAAAAQAAAAEAAAAAAw==", "num1") }
-def num2() {            sendremotecommand("AAAAAQAAAAEAAAABAw==", "num2") }
-def num3() {            sendremotecommand("AAAAAQAAAAEAAAACAw==", "num3") }
-def num4() {            sendremotecommand("AAAAAQAAAAEAAAADAw==", "num4") }
-def num5() {            sendremotecommand("AAAAAQAAAAEAAAAEAw==", "num5") }
-def num6() {            sendremotecommand("AAAAAQAAAAEAAAAFAw==", "num6") }
-def num7() {            sendremotecommand("AAAAAQAAAAEAAAAGAw==", "num7") }
-def num8() {            sendremotecommand("AAAAAQAAAAEAAAAHAw==", "num8") }
-def num9() {            sendremotecommand("AAAAAQAAAAEAAAAIAw==", "num9") }
-def num0() {            sendremotecommand("AAAAAQAAAAEAAAAJAw==", "num0") }
-def num11() {           sendremotecommand("AAAAAQAAAAEAAAAKAw==", "num11") }
-def num12() {           sendremotecommand("AAAAAQAAAAEAAAALAw==", "num12") }
-def num11() {           sendremotecommand("AAAAAQAAAAEAAAAKAw==", "num11") }
-def volumeup() {        sendremotecommand("AAAAAQAAAAEAAAASAw==", "volumeup") }
-def volumedown() {      sendremotecommand("AAAAAQAAAAEAAAATAw==", "volumedown") }
-def ChannelUp() {       sendremotecommand("AAAAAQAAAAEAAAAQAw==", "ChannelUp") }
-def ChannelDown() {     sendremotecommand("AAAAAQAAAAEAAAARAw==", "ChannelDown") }
-def SubTitle() {        sendremotecommand("AAAAAgAAAJcAAAAoAw==", "SubTitle") }
-def ClosedCaption() {   sendremotecommand("AAAAAgAAAKQAAAAQAw==", "ClosedCaption") }
-def Enter() {           sendremotecommand("AAAAAQAAAAEAAAALAw==", "Enter") }
-def DOT() {             sendremotecommand("AAAAAgAAAJcAAAAdAw==", "DOT") }
-def Analog() {          sendremotecommand("AAAAAgAAAHcAAAANAw==", "Analog") }
-def Teletext() {        sendremotecommand("AAAAAQAAAAEAAAA/Aw==", "Teletext") }
-def Exit() {            sendremotecommand("AAAAAQAAAAEAAABjAw==", "Exit") }
-def Analog2() {         sendremotecommand("AAAAAQAAAAEAAAA4Aw==", "Analog2") }
-def AD() {              sendremotecommand("AAAAAgAAABoAAAA7Aw==", "*AD") }
-def Analogg() {         sendremotecommand("AAAAAgAAAJcAAAAuAw==", "Analog?") }
-def BS() {              sendremotecommand("AAAAAgAAAJcAAAAsAw==", "BS") }
-def CS() {              sendremotecommand("AAAAAgAAAJcAAAArAw==", "CS") }
-def BSCS() {            sendremotecommand("AAAAAgAAAJcAAAAQAw==", "BSCS") }
-def Ddata() {           sendremotecommand("AAAAAgAAAJcAAAAVAw==", "Ddata") }
-def Tv_Radio() {        sendremotecommand("AAAAAgAAABoAAABXAw==", "Tv_Radio") }
-def Theater() {         sendremotecommand("AAAAAgAAAHcAAABgAw==", "Theater") }
-def SEN() {             sendremotecommand("AAAAAgAAABoAAAB9Aw==", "SEN") }
-def InternetWidgets() { sendremotecommand("AAAAAgAAABoAAAB6Aw==", "InternetWidgets") }
-def InternetVideo() {   sendremotecommand("AAAAAgAAABoAAAB5Aw==", "InternetVideo") }
-def netflix() {         sendremotecommand("AAAAAgAAABoAAAB8Aw==", "Netflix") }
-def SceneSelect() {     sendremotecommand("AAAAAgAAABoAAAB4Aw==", "SceneSelect") }
-def Mode3D() {          sendremotecommand("AAAAAgAAAHcAAABNAw==", "Mode3D") }
-def iManual() {         sendremotecommand("AAAAAgAAABoAAAB7Aw==", "iManual") }
-def Audio() {           sendremotecommand("AAAAAQAAAAEAAAAXAw==", "Audio") }
-def Wide() {            sendremotecommand("AAAAAgAAAKQAAAA9Aw==", "Wide") }
-def Jump() {            sendremotecommand("AAAAAQAAAAEAAAA7Aw==", "Jump") }
-def PAP() {             sendremotecommand("AAAAAgAAAKQAAAB3Aw==", "PAP") }
-def MyEPG() {           sendremotecommand("AAAAAgAAAHcAAABrAw==", "MyEPG") }
-def ProgramDescription() { sendremotecommand("AAAAAgAAAJcAAAAWAw==", "ProgramDescription") }
-def WriteChapter() {    sendremotecommand("AAAAAgAAAHcAAABsAw==", "WriteChapter") }
-def TrackID() {         sendremotecommand("AAAAAgAAABoAAAB+Aw==", "TrackID") }
-def TenKey() {          sendremotecommand("AAAAAgAAAJcAAAAMAw==", "TenKey") }
-def AppliCast() {       sendremotecommand("AAAAAgAAABoAAAByAw==", "AppliCast") }
-def DeleteVideo() {     sendremotecommand("AAAAAgAAAHcAAAAfAw==", "DeleteVideo") }
-def PhotoFrame() {      sendremotecommand("AAAAAgAAABoAAABVAw==", "PhotoFrame") }
-def TvPause() {         sendremotecommand("AAAAAgAAABoAAABnAw==", "TvPause") }
-def KeyPad() {          sendremotecommand("AAAAAgAAABoAAAB1Aw==", "KeyPad") }
-def Media() {           sendremotecommand("AAAAAgAAAJcAAAA4Aw==", "Media") }
-def SyncMenu() {        sendremotecommand("AAAAAgAAABoAAABYAw==", "SyncMenu") }
-def Forward() {         sendremotecommand("AAAAAgAAAJcAAAAcAw==", "Forward") }
-def Play() {            sendremotecommand("AAAAAgAAAJcAAAAaAw==", "Play") }
-def Rewind() {          sendremotecommand("AAAAAgAAAJcAAAAbAw==", "Rewind") }
-def Prev() {            sendremotecommand("AAAAAgAAAJcAAAA8Aw==", "Prev") }
-def Stop() {            sendremotecommand("AAAAAgAAAJcAAAAYAw==", "Stop") }
-def Next() {            sendremotecommand("AAAAAgAAAJcAAAA9Aw==", "Next") }
-def Rec() {             sendremotecommand("AAAAAgAAAJcAAAAgAw==", "Rec") }
-def Pause() {           sendremotecommand("AAAAAgAAAJcAAAAZAw==", "Pause") }
-def Eject() {           sendremotecommand("AAAAAgAAAJcAAABIAw==", "Eject") }
-def FlashPlus() {       sendremotecommand("AAAAAgAAAJcAAAB4Aw==", "FlashPlus") }
-def FlashMinus() {      sendremotecommand("AAAAAgAAAJcAAAB5Aw==", "FlashMinus") }
-def TopMenu() {         sendremotecommand("AAAAAgAAABoAAABgAw==", "TopMenu") }
-def PopUpMenu() {       sendremotecommand("AAAAAgAAABoAAABhAw==", "PopUpMenu") }
-def RakurakuStart() {   sendremotecommand("AAAAAgAAAHcAAABqAw==", "RakurakuStart") }
-def OneTouchView() {    sendremotecommand("AAAAAgAAABoAAABlAw==", "OneTouchView") }
-def OneTouchTimeRec() { sendremotecommand("AAAAAgAAABoAAABkAw==", "OneTouchTimeRec") }
-def OneTouchRec() {     sendremotecommand("AAAAAgAAABoAAABiAw==", "OneTouchRec") }
-def OneTouchStop() {    sendremotecommand("AAAAAgAAABoAAABjAw==", "OneTouchStop") }
-def DUX() {             sendremotecommand("AAAAAgAAABoAAABzAw==", "DUX") }
-def FootballMode() {    sendremotecommand("AAAAAgAAABoAAAB2Aw==", "FootballMode") }
-def Social() {          sendremotecommand("AAAAAgAAABoAAAB0Aw==", "Social") }
-def TVS() {             sendremotecommand("AAAAAQAAAAEAAAAkAw==", "TVS") }
-def tv_source() {       sendremotecommand("AAAAAQAAAAEAAAAlAw==", "Input") }
-def hdmi1() {           sendremotecommand("AAAAAgAAABoAAABaAw==", "hdmi1") }
-def hdmi2() {           sendremotecommand("AAAAAgAAABoAAABbAw==", "hdmi2") }
-def hdmi3() {           sendremotecommand("AAAAAgAAABoAAABcAw==", "hdmi3") }
-def hdmi4() {           sendremotecommand("AAAAAgAAABoAAABdAw==", "hdmi4") }
-def mute() {            sendremotecommand("AAAAAQAAAAEAAAAUAw==", "mute") }
+def cmdDigital() {         sendRemoteCommand("AAAAAgAAAJcAAAAyAw==", "Digital") }
+def cmdPicOff() {          sendRemoteCommand("AAAAAQAAAAEAAAA+Aw==", "Pic Off") }
+def cmdGGuide() {          sendRemoteCommand("AAAAAQAAAAEAAAAOAw==", "GGuide") }
+def cmdEPG() {             sendRemoteCommand("AAAAAgAAAKQAAABbAw==", "EPG") }
+def cmdFavorites() {       sendRemoteCommand("AAAAAgAAAHcAAAB2Aw==", "Favorites") }
+def cmdDisplay() {         sendRemoteCommand("AAAAAQAAAAEAAAA6Aw==", "Display") }
+def cmdHome() {            sendRemoteCommand("AAAAAQAAAAEAAABgAw==", "Home") }
+def cmdActionMenu() {      sendRemoteCommand("AAAAAgAAAMQAAABLAw==", "Action Menu") } // Was the same code as Options
+def cmdReturn() {          sendRemoteCommand("AAAAAgAAAJcAAAAjAw==", "Return") }
+def cmdUp() {              sendRemoteCommand("AAAAAQAAAAEAAAB0Aw==", "Up") }
+def cmdDown() {            sendRemoteCommand("AAAAAQAAAAEAAAB1Aw==", "Down") }
+def cmdRight() {           sendRemoteCommand("AAAAAQAAAAEAAAAzAw==", "Right") }
+def cmdLeft() {            sendRemoteCommand("AAAAAQAAAAEAAAA0Aw==", "Left") }
+def cmdConfirm() {         sendRemoteCommand("AAAAAQAAAAEAAABlAw==", "Confirm") }
+def cmdBlue() {            sendRemoteCommand("AAAAAgAAAJcAAAAkAw==", "Blue") }
+def cmdRed() {             sendRemoteCommand("AAAAAgAAAJcAAAAlAw==", "Red") }
+def cmdGreen() {           sendRemoteCommand("AAAAAgAAAJcAAAAmAw==", "Green") }
+def cmdYellow() {          sendRemoteCommand("AAAAAgAAAJcAAAAnAw==", "Yellow") }
+def cmdNum1() {            sendRemoteCommand("AAAAAQAAAAEAAAAAAw==", "Num1") }
+def cmdNum2() {            sendRemoteCommand("AAAAAQAAAAEAAAABAw==", "Num2") }
+def cmdNum3() {            sendRemoteCommand("AAAAAQAAAAEAAAACAw==", "Num3") }
+def cmdNum4() {            sendRemoteCommand("AAAAAQAAAAEAAAADAw==", "Num4") }
+def cmdNum5() {            sendRemoteCommand("AAAAAQAAAAEAAAAEAw==", "Num5") }
+def cmdNum6() {            sendRemoteCommand("AAAAAQAAAAEAAAAFAw==", "Num6") }
+def cmdNum7() {            sendRemoteCommand("AAAAAQAAAAEAAAAGAw==", "Num7") }
+def cmdNum8() {            sendRemoteCommand("AAAAAQAAAAEAAAAHAw==", "Num8") }
+def cmdNum9() {            sendRemoteCommand("AAAAAQAAAAEAAAAIAw==", "Num9") }
+def cmdNum0() {            sendRemoteCommand("AAAAAQAAAAEAAAAJAw==", "Num0") }
+def cmdNum11() {           cmdTV() }
+def cmdNum12() {           tv_source() }
+def cmdVolumeUp() {        sendRemoteCommand("AAAAAQAAAAEAAAASAw==", "Volume Up") }
+def cmdVolumeDown() {      sendRemoteCommand("AAAAAQAAAAEAAAATAw==", "Volume Down") }
+def cmdChannelUp() {       sendRemoteCommand("AAAAAQAAAAEAAAAQAw==", "Channel Up") }
+def cmdChannelDown() {     sendRemoteCommand("AAAAAQAAAAEAAAARAw==", "Channel Down") }
+def cmdSubTitle() {        sendRemoteCommand("AAAAAgAAAJcAAAAoAw==", "SubTitle") }
+def cmdClosedCaption() {   sendRemoteCommand("AAAAAgAAAKQAAAAQAw==", "ClosedCaption") }
+def cmdEnter() {           cmdTvSource() }
+def cmdDOT() {             sendRemoteCommand("AAAAAgAAAJcAAAAdAw==", "DOT") }
+def cmdAnalog() {          sendRemoteCommand("AAAAAgAAAHcAAAANAw==", "Analog") }
+def cmdTeletext() {        sendRemoteCommand("AAAAAQAAAAEAAAA/Aw==", "Teletext") }
+def cmdExit() {            sendRemoteCommand("AAAAAQAAAAEAAABjAw==", "Exit") }
+def cmdAnalog2() {         sendRemoteCommand("AAAAAQAAAAEAAAA4Aw==", "Analog2") }
+def cmdAD() {              sendRemoteCommand("AAAAAgAAABoAAAA7Aw==", "*AD") }
+def cmdAnalogg() {         sendRemoteCommand("AAAAAgAAAJcAAAAuAw==", "Analog?") }
+def cmdBS() {              sendRemoteCommand("AAAAAgAAAJcAAAAsAw==", "BS") }
+def cmdCS() {              sendRemoteCommand("AAAAAgAAAJcAAAArAw==", "CS") }
+def cmdBSCS() {            sendRemoteCommand("AAAAAgAAAJcAAAAQAw==", "BSCS") }
+def cmdDdata() {           sendRemoteCommand("AAAAAgAAAJcAAAAVAw==", "Ddata") }
+def cmdTvRadio() {         sendRemoteCommand("AAAAAgAAABoAAABXAw==", "TV Radio") }
+def cmdTheater() {         sendRemoteCommand("AAAAAgAAAHcAAABgAw==", "Theater") }
+def cmdSEN() {             sendRemoteCommand("AAAAAgAAABoAAAB9Aw==", "SEN") }
+def cmdInternetWidgets() { sendRemoteCommand("AAAAAgAAABoAAAB6Aw==", "InternetWidgets") }
+def cmdInternetVideo() {   sendRemoteCommand("AAAAAgAAABoAAAB5Aw==", "InternetVideo") }
+def cmdNetflix() {         sendRemoteCommand("AAAAAgAAABoAAAB8Aw==", "Netflix") }
+def cmdSceneSelect() {     sendRemoteCommand("AAAAAgAAABoAAAB4Aw==", "SceneSelect") }
+def cmdMode3D() {          sendRemoteCommand("AAAAAgAAAHcAAABNAw==", "Mode3D") }
+def cmdIManual() {         sendRemoteCommand("AAAAAgAAABoAAAB7Aw==", "iManual") }
+def cmdAudio() {           sendRemoteCommand("AAAAAQAAAAEAAAAXAw==", "Audio") }
+def cmdWide() {            sendRemoteCommand("AAAAAgAAAKQAAAA9Aw==", "Wide") }
+def cmdJump() {            sendRemoteCommand("AAAAAQAAAAEAAAA7Aw==", "Jump") }
+def cmdPAP() {             sendRemoteCommand("AAAAAgAAAKQAAAB3Aw==", "PAP") }
+def cmdMyEPG() {           sendRemoteCommand("AAAAAgAAAHcAAABrAw==", "MyEPG") }
+def cmdProgramDescription() { sendRemoteCommand("AAAAAgAAAJcAAAAWAw==", "ProgramDescription") }
+def cmdWriteChapter() {    sendRemoteCommand("AAAAAgAAAHcAAABsAw==", "WriteChapter") } //DigitalToggle
+def cmdTrackID() {         sendRemoteCommand("AAAAAgAAABoAAAB+Aw==", "TrackID") }
+def cmdTenKey() {          cmdGreen() }
+def cmdAppliCast() {       cmdSyncMenu() }
+def cmdDeleteVideo() {     sendRemoteCommand("AAAAAgAAAHcAAAAfAw==", "DeleteVideo") }
+def cmdPhotoFrame() {      sendRemoteCommand("AAAAAgAAABoAAABVAw==", "PhotoFrame") }
+def cmdTvPause() {         sendRemoteCommand("AAAAAgAAABoAAABnAw==", "TV Pause") }
+def cmdKeyPad() {          sendRemoteCommand("AAAAAgAAABoAAAB1Aw==", "KeyPad") }
+def cmdMedia() {           sendRemoteCommand("AAAAAgAAAJcAAAA4Aw==", "Media") }
+def cmdSyncMenu() {        sendRemoteCommand("AAAAAgAAABoAAABYAw==", "SyncMenu") }
+def cmdPlay() {            sendRemoteCommand("AAAAAgAAAJcAAAAaAw==", "Play") }
+def cmdRewind() {          sendRemoteCommand("AAAAAgAAAJcAAAAbAw==", "Rewind") }
+def cmdForward() {         sendRemoteCommand("AAAAAgAAAJcAAAAcAw==", "Forward") }
+def cmdStop() {            cmdDigital() }
+def cmdPrev() {            sendRemoteCommand("AAAAAgAAAJcAAAA8Aw==", "Prev") }
+def cmdNext() {            sendRemoteCommand("AAAAAgAAAJcAAAA9Aw==", "Next") }
+def cmdRec() {             sendRemoteCommand("AAAAAgAAAJcAAAAgAw==", "Rec") }
+def cmdPause() {           sendRemoteCommand("AAAAAgAAAJcAAAAZAw==", "Pause") }
+def cmdEject() {           sendRemoteCommand("AAAAAgAAAJcAAABIAw==", "Eject") }
+def cmdFlashPlus() {       sendRemoteCommand("AAAAAgAAAJcAAAB4Aw==", "FlashPlus") }
+def cmdFlashMinus() {      sendRemoteCommand("AAAAAgAAAJcAAAB5Aw==", "FlashMinus") }
+def cmdTopMenu() {         sendRemoteCommand("AAAAAgAAABoAAABgAw==", "TopMenu") }
+def cmdPopUpMenu() {       sendRemoteCommand("AAAAAgAAABoAAABhAw==", "Pop Up Menu") }
+def cmdRakurakuStart() {   sendRemoteCommand("AAAAAgAAAHcAAABqAw==", "RakurakuStart") }
+def cmdOneTouchView() {    sendRemoteCommand("AAAAAgAAABoAAABlAw==", "OneTouchView") }
+def cmdOneTouchTimeRec() { sendRemoteCommand("AAAAAgAAABoAAABkAw==", "OneTouchTimeRec") }
+def cmdOneTouchRec() {     sendRemoteCommand("AAAAAgAAABoAAABiAw==", "OneTouchRec") }
+def cmdOneTouchStop() {    sendRemoteCommand("AAAAAgAAABoAAABjAw==", "OneTouchStop") }
+def cmdDUX() {             sendRemoteCommand("AAAAAgAAABoAAABzAw==", "DUX") }
+def cmdFootballMode() {    sendRemoteCommand("AAAAAgAAABoAAAB2Aw==", "FootballMode") }
+def cmdSocial() {          sendRemoteCommand("AAAAAgAAABoAAAB0Aw==", "Social") }
+def cmdTvSource() {        sendRemoteCommand("AAAAAQAAAAEAAAAlAw==", "Input") }
+def cmdHdmi1() {           sendRemoteCommand("AAAAAgAAABoAAABaAw==", "HDMI1") }
+def cmdHdmi2() {           sendRemoteCommand("AAAAAgAAABoAAABbAw==", "HDMI2") }
+def cmdHdmi3() {           sendRemoteCommand("AAAAAgAAABoAAABcAw==", "HDMI3") }
+def cmdHdmi4() {           sendRemoteCommand("AAAAAgAAABoAAABdAw==", "HDMI4") }
+def cmdMute() {            sendRemoteCommand("AAAAAQAAAAEAAAAUAw==", "Mute") }
 
-def sendremotecommand(code, button){
+def cmdTV() {              sendRemoteCommand("AAAAAQAAAAEAAAAkAw==", "TV") }
+def cmdPowerOn() {         cmdMute() }
+def cmdPowerOff() {        sendRemoteCommand("AAAAAQAAAAEAAAAVAw==", "Power Off") }
+def cmdSleepTimer() {      sendRemoteCommand("AAAAAQAAAAEAAAA2Aw==", "SleepTimer") }
+def cmdVideo1() {          sendRemoteCommand("AAAAAQAAAAEAAABAAw==", "Video1") }
+def cmdVideo2() {          sendRemoteCommand("AAAAAQAAAAEAAABBAw==", "Video2") }
+def cmdAnalogRgb1() {      sendRemoteCommand("AAAAAQAAAAEAAABDAw==", "") }
+def cmdPictureMode() {     sendRemoteCommand("AAAAAQAAAAEAAABkAw==", "Picture Mode") }
+def cmdComponent1() {      sendRemoteCommand("AAAAAgAAAKQAAAA2Aw==", "Component1") }
+def cmdComponent2() {      sendRemoteCommand("AAAAAgAAAKQAAAA3Aw==", "Component2") }
+def cmdOptions() {         sendRemoteCommand("AAAAAgAAAJcAAAA2Aw==", "Options") }
+def cmdDPadCenter() {      sendRemoteCommand("AAAAAgAAAJcAAABKAw==", "DPad Center") }
+def cmdCursorLeft() {      sendRemoteCommand("AAAAAgAAAJcAAABNAw==", "Cursor Left") }
+def cmdCursorRight() {     sendRemoteCommand("AAAAAgAAAJcAAABOAw=='", "Cursor Right") }
+def cmdCursorUp() {        sendRemoteCommand("AAAAAgAAAJcAAABPAw==", "Cursor Up") }
+def cmdCursorDown() {      sendRemoteCommand("AAAAAgAAAJcAAABQAw==", "Cursor Down") }
+def cmdShopRemoteControlForcedDynamic() { sendRemoteCommand("AAAAAgAAAJcAAABqAw==", "ShopRemoteControlForcedDynamic") }
+def cmdAudioQualityMode(){ sendRemoteCommand("AAAAAgAAAJcAAAB7Aw==", "AudioQualityMode") }
+def cmdDemoMode() {        sendRemoteCommand("AAAAAgAAAJcAAAB8Aw==", "DemoMode") }
+def cmdDemoSurround() {    sendRemoteCommand("AAAAAgAAAHcAAAB7Aw==", "DemoSurround") }
+def cmdAudioMixUp() {      sendRemoteCommand("AAAAAgAAABoAAAA8Aw==", "Audio Mix Up") }
+def cmdAudioMixDown() {    sendRemoteCommand("AAAAAgAAABoAAAA9Aw=="), "Audio Mix Down" }
+def cmdAssists() {         sendRemoteCommand("AAAAAgAAAMQAAAA7Aw==", "Assists") }
+def cmdHelp() {            sendRemoteCommand("AAAAAgAAAMQAAABNAw==", "Help") }
+def cmdTvSatellite() {     sendRemoteCommand("AAAAAgAAAMQAAABOAw==", "TvSatellite") }
+def cmdWirelessSubwoofer(){sendRemoteCommand("AAAAAgAAAMQAAAB+Aw==", "WirelessSubwoofer")}
+
+def sendRemoteCommand(code, button){
     log.debug "Sending Button: ${button} ${code}"
 
-    state.remotecommand = code
+    state.remoteCommand = code
     state.button = button
 
-    def rawcmd = "${state.remotecommand}"
+    def rawcmd = "${state.remoteCommand}"
     def sonycmd = new physicalgraph.device.HubSoapAction(
         path:    '/sony/IRCC',
         urn:     "urn:schemas-sony-com:service:IRCC:1",
