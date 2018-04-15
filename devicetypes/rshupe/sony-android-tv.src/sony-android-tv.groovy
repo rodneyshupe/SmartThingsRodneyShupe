@@ -47,20 +47,16 @@ metadata {
         capability "Switch Level"
         capability "TV"
 
-        command "sendRemoteCommand"
         command "cmdDigital"
         command "cmdPicOff"
-        command "tv_source"
-        command "hdmi1"
-        command "hdmi2"
-        command "hdmi3"
-        command "hdmi4"
-        command "mute"
-        command "netflix"
-        command "WOLC"
-        command "ipaddress"
-        command "iphex"
-        command "macaddress"
+        command "cmdTvSource"
+        command "cmdHdmi1"
+        command "cmdHdmi2"
+        command "cmdHdmi3"
+        command "cmdHdmi4"
+        command "cmdMute"
+        command "cmdNetflix"
+        command "cmdWOLC"
         command "cmdHome"
         command "cmdGGuide"
         command "cmdEPG"
@@ -160,7 +156,7 @@ metadata {
     }
 
     tiles(scale: 2) {
-        multiAttributeTile(name: "TVMulti", type:"generic", width:6, height:2) {
+        multiAttributeTile(name: "tileTVMulti", type:"generic", width:6, height:2) {
             tileAttribute("device.switch", key: "PRIMARY_CONTROL") {
                 attributeState "on", label:'ON', backgroundColor:"#00A0DC", nextState:"turningOff"
                 attributeState "off", label:'${name}', backgroundColor:"#ffffff", nextState:"turningOn"
@@ -179,12 +175,12 @@ metadata {
             }
         }
 
-        standardTile("switch", "device.switch", width: 2, height: 2, canChangeIcon: true) {
+        standardTile("tileSwitch", "device.switch", width: 2, height: 2, canChangeIcon: true) {
             state "off", label: '${name}', action: "switch.on", icon: "st.thermostat.heating-cooling-off", backgroundColor: "#ffffff"
             state "on", label: 'ON', action: "switch.off", icon: "st.thermostat.heating-cooling-on", backgroundColor: "#79b821"
         }
 
-        standardTile("power", "device.switch", width: 1, height: 1, canChangeIcon: false) {
+        standardTile("tilePower", "device.switch", width: 1, height: 1, canChangeIcon: false) {
             state "off", label: '', action: "on", icon:"st.thermostat.heating-cooling-off", backgroundColor: "#ffffff"//, nextState: "on"
             state "on", label: '', action: "off", icon:"st.thermostat.heating-cooling-off", backgroundColor: "#79b821"//, nextState: "off"
         }
@@ -489,7 +485,7 @@ metadata {
             state "default", label:"Discovery", action:"DUX", icon:""
         }
 
-        standardTile("FootballMode", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
+        standardTile("tileFootballMode", "device.switch", inactiveLabel: false, height: 1, width: 1, decoration: "flat") {
             state "default", label:"Football Mode", action:"cmdFootballMode", icon:""
         }
 
@@ -497,7 +493,7 @@ metadata {
         	state "level", action:"switch level.setLevel"
         }
 
-        main("switch")
+        main("tileSwitch")
 
         /**uncomment any extra tiles you need from the lines below*/
         details(["tileHdmi1", "tileHdmi2", "tileHdmi3", "tileHdmi4",
